@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace里面填写的是接口的全类名-->
+<mapper namespace="com.zxb.dao.ResumeDao">
+    <insert id="save" parameterType="Resume">
+        insert into
+        resumes(name,age,sex,education,tel,email,application_job,politic_status,last_job,experience,expected_salary,hobby)
+        values
+        (#{name},#{age},#{sex},#{education},#{tel},#{email},#{application_job},#{namepolitic_status},#{last_job},#{experience},#{expected_salary},#{hobby})
+    </insert>
+</mapper>

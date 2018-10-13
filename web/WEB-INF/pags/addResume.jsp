@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -9,9 +10,31 @@
 <html>
 <head>
     <title>Title</title>
+    <script type="text/javascript">
+       $(function () {
+           $("#id").blur(function () {
+               $.ajax({
+                   url:"${pageContext.request.contextPath}/addResume",
+                   datatype:"json",
+                   type:"post",
+                   data:{
+                       "id":$(":hidden").value()
+                   },
+                   sucess:function (data) {
+                       $("#jobText").empty();
+                       var array = date.job_name;
+                       var size = array.length;
+                       for(var i=0;i<size;i++){
+                           $("#gt").append("<option>"+array[i]+"</option>")
+                       }
+                   }
+               });
+           });
+       })
+    </script>
 </head>
 <body>
-    <table>
+    <table border="1" cellpadding="1" cellspacing="1">
        <tr>
         <td>个人简历</td>
         </tr>
@@ -44,7 +67,18 @@
             <tr>
                 <td>应聘职位</td>
                 <%--待解决二级联动--%>
-                <td>部门职位</td>
+                <td>
+                    <select name="department" id="dept">
+                        <option>--部门--</option>
+                        <c:forEach items="${requestScope.departments} var=department">
+                            <input type="hidden" value="${department.id}">
+                            <option id="get">${department.dept_name}</option>
+                        </c:forEach>
+                    </select>
+                    <select name="job" id="jobtext">
+                        <option id="gt">--职位--</option>
+                    </select>
+                </td>
                 <td>政治面貌</td>
                 <td><input type="email" name="politic_status"></td>
             </tr>

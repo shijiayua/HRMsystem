@@ -9,6 +9,12 @@
         insert into users(name,password) values(#{name},#{password});
     </insert>
     <select id="queryByNameAndPass" parameterType="User" resultType="User">
-        select * from users where name =#{name},password=#{password};
+        select * from users where name =#{name} and password=#{password};
     </select>
+    <select id="queryByPass" parameterType="String" resultType="User">
+        select * from users where password = #{password};
+    </select>
+    <update id="editPass" parameterType="User">
+        update users set password  = #{password} where name=#{name};
+    </update>
 </mapper>

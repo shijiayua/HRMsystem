@@ -12,8 +12,11 @@
 </head>
 <body>
     <a>反馈</a>
-    <a href="addresume">查看简历</a>
-    <a>修改简历</a>
+    <a href="${pageContext.request.contextPath}/user/addresume">添加简历</a>
+    <a href="${pageContext.request.contextPath}/user/showresume">查看简历</a>
+    <a href="${pageContext.request.contextPath}/user/editpass">修改密码</a>
+    <a href="${pageContext.request.contextPath}/user/editResume">修改简历</a>
+    <a href="${pageContext.request.contextPath}/user/showAllRecuit">查看招聘信息</a>
     <a>其他</a>
     <a>退出</a>
 </body>

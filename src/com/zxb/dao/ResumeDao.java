@@ -1,6 +1,6 @@
 package com.zxb.dao;
 
-import com.zxb.entitys.Resume;
+import com.zxb.entity.Resume;
 
 /**
  * Created by Administrator on 2018/10/12.

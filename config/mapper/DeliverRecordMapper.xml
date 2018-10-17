@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace里面填写的是接口的全类名-->
+<mapper namespace="com.zxb.dao.DeliverRecordDao">
+    <insert id="addRecord" parameterType="DeliverRecord" >
+        insert into deliverrecords(interviewer,deliver_time,look_staus,interview_staus) values(#{interviewer},#{deliver_time},#{look_staus},#{interview_staus});
+    </insert>
+    <select id="queryAll" resultType="DeliverRecord">
+        select * from deliverrecords;
+    </select>
+</mapper>

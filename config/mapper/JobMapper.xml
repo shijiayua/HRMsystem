@@ -5,4 +5,10 @@
     <select id="queryById" parameterType="int" resultType="Job">
         select * from jobs where department_id=#{id};
     </select>
+    <select id="queryByName" parameterType="String" resultType="Job">
+        select * from jobs where job_name=#{name};
+    </select>
+    <select id="queryAll" resultType="Job">
+        select * from jobs j,departments d where j.department_id = d.did;
+    </select>
 </mapper>
